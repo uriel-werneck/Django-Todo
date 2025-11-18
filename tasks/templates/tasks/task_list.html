@@ -7,12 +7,27 @@
     </head>
     <body>
         <h1>Task List</h1>
+        <hr>
+        <form method="POST" action="{% url 'task_create' %}">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Task title">
+            <button type="submit">Add Task</button>
+        </form>
+        <hr>
         <ul>
             {% for task in tasks %}
                 <li>
                     {{ task.title }} - {% if task.completed %}✔️{% else %}❌{% endif %}
+                    <form method="POST" action="{% url 'task_delete' task.id %}">
+                        {% csrf_token %}
+                        <button type="submit">X</button>
+                    </form>
+                    <form method="POST" action="{% url 'task_update' task.id %}">
+                        {% csrf_token %}
+                        <input type="checkbox" name="completed" onChange="this.form.submit()" {% if task.completed %}checked{% endif %}>
+                    </form>
                 </li>
-            {% endfor %}   
+            {% endfor %}
         </ul>
     </body>
 </html>
