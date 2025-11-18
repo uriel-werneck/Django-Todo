@@ -1,6 +1,6 @@
 # 📝 Django-Todo
 
-Uma To-Do Lista feita em Django usando o padrão MVT.
+Uma To-Do List feita em Django usando o padrão MVT.
 
 ## ✅ Funcionalidades
 
@@ -30,6 +30,11 @@ Uma To-Do Lista feita em Django usando o padrão MVT.
 4.  **Instale as dependências**
     ```bash
     pip install -r requirements.txt
+    ```
+
+4.  **Migre o banco de dados**
+    ```bash
+    python manage.py migrate
     ```
 
 # 🚀 Inicie a aplicação
